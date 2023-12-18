@@ -311,10 +311,12 @@ llm install https://github.com/sskaje/llm-mlx-llama/archive/refs/heads/main.zip
 Test
 
 ``` 
+# download first 
+# huggingface-cli download --cache-dir ~/.cache/huggingface/hub --local-dir Llama-2-7b-chat-mlx --local-dir-use-symlinks True  mlx-llama/Llama-2-7b-chat-mlx
 
 llm -m mlx-llama \
   'five great reasons to get a pet pelican:' \
-  -o model Llama-2-7b-chat-mlx/weights.npz \
+  -o model Llama-2-7b-chat-mlx \
   -o tokenizer Llama-2-7b-chat-mlx/tokenizer.model
 
 ```
@@ -393,7 +395,9 @@ python startup.py -a
 
 ``` 
 
-Add more model 
+Add more model
+
+langchain-chatchat detects models by directory name. 
 ```
 # qwen, unfortunately not supported
 huggingface-cli download --cache-dir ~/.cache/huggingface/hub --local-dir Qwen-14B-Chat  --local-dir-use-symlinks True qwen/Qwen-14B-Chat
