@@ -269,6 +269,34 @@ ASSISTANT: Rust is a systems programming language that is gaining popularity for
 1. Learn the basics of programming: Rust is built on top of.......
 ```
 
+### llm 
+*Chat mode and continuing a conversation are not yet supported.*
+
+Prepare 
+``` 
+pip install llm 
+
+# install llm mlx plugin
+llm install https://github.com/sskaje/llm-mlx-llama/archive/refs/heads/main.zip
+# use command below if github.com unreachable
+#llm install https://p.rst.im/q/github.com/sskaje/llm-mlx-llama/archive/refs/heads/main.zip
+ 
+
+
+```
+
+Test
+
+``` 
+
+llm -m mlx-llama \
+  'five great reasons to get a pet pelican:' \
+  -o model Llama-2-7b-chat-mlx/weights.npz \
+  -o tokenizer Llama-2-7b-chat-mlx/tokenizer.model
+
+```
+
+
 
 ### Langchain-Chatchat
 
