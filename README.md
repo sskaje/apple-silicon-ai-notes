@@ -145,26 +145,9 @@ There have been many great Mac products over the years, but some stand out as pa
 [INFO] Full generation: 4.848 s
 ```
 
-### MarianMT Translation
-
-English to Chinese translation.
-
-https://huggingface.co/Helsinki-NLP/opus-mt-en-ZH
 
 
-``` 
-python demo/marianmt_test.py
-
-```
-
-
-### FastChat 
-
-
-[Read more ...](./fastchat/)
-
-
-### llm + mlx
+### MLX + llm
 
 https://llm.datasette.io/en/stable/
 
@@ -195,89 +178,32 @@ llm -m mlx-llama \
 
 ```
 
+### MarianMT Translation
+
+English to Chinese translation.
+
+https://huggingface.co/Helsinki-NLP/opus-mt-en-ZH
+
+
+``` 
+python demo/marianmt_test.py
+
+```
+
+
+### FastChat 
+
+
+[Read more ...](./fastchat/)
+
+
 
 
 ### Langchain-Chatchat
-https://github.com/chatchat-space/Langchain-Chatchat.git
 
-```
+[Read more ...](./langchain-chatchat/)
 
-# prepare 
-
-git clone https://github.com/chatchat-space/Langchain-Chatchat.git
-cd Langchain-Chatchat
-pip install -r requirements.txt
-pip install -r requirements_api.txt
-pip install -r requirements_webui.txt
-pip install jq 
-
-# download models
-
-huggingface-cli download --cache-dir ~/.cache/huggingface/hub --local-dir chatglm3-6b --local-dir-use-symlinks True  THUDM/chatglm3-6b
-huggingface-cli download --cache-dir ~/.cache/huggingface/hub --local-dir bge-large-zh --local-dir-use-symlinks True  BAAI/bge-large-zh
-
-# init 
-python copy_config_example.py
-python init_database.py --recreate-vs
-
-
-## return to work dir 
-# cd ..
-
-```
-
-To get LangChain-Chatchat work, we need to force this framework using mps by modify `server/utils.py`, find the function `detect_device`, force return "mps" 
-
-Code like: 
-
-```
-
-def detect_device() -> Literal["cuda", "mps", "cpu"]:
-    return "mps"
-    try:
-        import torch
-        if torch.cuda.is_available():
-            return "cuda"
-        if torch.backends.mps.is_available():
-            return "mps"
-    except:
-        pass
-    return "cpu"
-
-        
-def llm_device(device: str = None) -> Literal["cuda", "mps", "cpu"]:
-    return "mps"
-    device = device or LLM_DEVICE
-    if device not in ["cuda", "mps", "cpu"]:
-        device = detect_device()
-    return device
-        
-    
-def embedding_device(device: str = None) -> Literal["cuda", "mps", "cpu"]:
-    return "mps"
-    device = device or EMBEDDING_DEVICE
-    if device not in ["cuda", "mps", "cpu"]:
-        device = detect_device()
-    return device
-
-```
-
-Start service
-```
-# start 
-python startup.py -a
-
-``` 
-
-Add more model
-
-langchain-chatchat detects models by directory name. 
-```
-# qwen, unfortunately not supported
-huggingface-cli download --cache-dir ~/.cache/huggingface/hub --local-dir Qwen-14B-Chat  --local-dir-use-symlinks True qwen/Qwen-14B-Chat
-```
-
-### inference
+### xinference
 https://github.com/xorbitsai/inference
 
 ```
