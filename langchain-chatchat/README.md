@@ -12,7 +12,7 @@ Create VirtualEnv
 # macports python3.11
 python3.11 -m venv venv
 
-bash install.sh
+./install.sh
 
 ```
 
