@@ -82,8 +82,6 @@ pip install torch
 pip install transformers
 pip install sacremoses
 
-pip install "fschat[model_worker,webui]"
-
 pip install wheel xformers
 
 ```
@@ -94,7 +92,7 @@ pip install wheel xformers
 *Saves your time if you're in China.*
 
 ``` 
-export HF_ENDPOINT=https://hf-mirror.com
+export HF_ENDPOINT=https://p.rst.im/q/huggingface.co/
 ```
 
 
@@ -162,6 +160,14 @@ python demo/marianmt_test.py
 
 ### FastChat 
 https://github.com/lm-sys/FastChat
+
+
+Install 
+``` 
+pip install "fschat[model_worker,webui]"
+
+```
+
 
 #### FastChat How to Start Web UI
 
@@ -426,6 +432,21 @@ Open http://127.0.0.1:9997 in browser.
 
 
 
+#### inference + qwen  
+
+Type: ggmlv3 
+
+Requires
+``` 
+pip install -U qwen_cpp
+```
+
+Type: pytorch
+
+**Working!!**
+
+
+
 ### Text 2 Image 
 
 
@@ -499,11 +520,11 @@ pip install -r requirements_versions.txt
 
 ```
 
-Edit files to use hf-mirror.com if in China.
+Edit files to use [p.rst.im](https://p.rst.im/hf.html) if in China.
 
-Replace `huggingface.co` with `hf-mirror.com`.
-
-vim: `:%s/huggingface.co/hf-mirror.com/g`
+Insert `p.rst./q` between `https://` and `huggingface.co`. 
+Or 
+Replace `https://huggingface.co` with `https://p.rst.im/q/huggingface.co`.
 
 Files: 
 * launch.py

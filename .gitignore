@@ -4,3 +4,5 @@ Llama-2-7b-chat-mlx
 Langchain-Chatchat
 stable-diffusion-webui
 .idea
+*.log
+*.json
