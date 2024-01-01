@@ -314,16 +314,16 @@ pip install -r requirements_versions.txt
 
 ```
 
-Edit files to use [p.rst.im](https://p.rst.im/hf.html) if in China.
-
-Insert `p.rst./q` between `https://` and `huggingface.co`. 
-Or 
-Replace `https://huggingface.co` with `https://p.rst.im/q/huggingface.co`.
+Edit files to use [p.rst.im](https://p.rst.im/hf.html) if in China or use `hf.rst.im` as endpoint.
 
 Files: 
 * launch.py
 * config_modification_tutorial.txt
 * modules/config.py
+
+```
+sed  -I "" -e 's/huggingface.co/hf.rst.im/g' launch.py config_modification_tutorial.txt modules/config.py
+```
 
 
 start 
