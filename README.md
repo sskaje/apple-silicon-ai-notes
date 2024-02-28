@@ -204,41 +204,7 @@ python demo/marianmt_test.py
 [Read more ...](./langchain-chatchat/)
 
 ### xinference
-https://github.com/xorbitsai/inference
-
-```
-pip install xinference
-pip install ctransformers
-CMAKE_ARGS="-DLLAMA_METAL=on" pip install llama-cpp-python
-
-# these will report CUDA error
-#pip install "xinference[transformers]"
-#pip install "xinference[vllm]"
-
-```
-
-start 
-``` 
-xinference-local
-```
-
-Open http://127.0.0.1:9997 in browser.
-
-
-
-#### inference + qwen  
-
-Type: ggmlv3 
-
-Requires
-``` 
-pip install -U qwen_cpp
-```
-
-Type: pytorch
-
-**Working!!**
-
+[Read more ...](./xinference/)
 
 
 ### Text 2 Image 
